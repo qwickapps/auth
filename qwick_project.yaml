@@ -1,0 +1,60 @@
+name: QwickApps Auth Core
+description: >
+  Platform-agnostic authentication foundation library for QwickApps ecosystem.
+  Provides pure TypeScript contracts, interfaces, and shared business logic
+  for authentication across all platforms and services without external dependencies.
+
+type: core-library
+category: authentication
+framework: typescript
+language: typescript
+
+architecture:
+  type: foundation-library
+  components:
+    - auth-contracts
+    - type-definitions
+    - business-logic
+    - validation-logic
+  patterns:
+    - platform-agnostic
+    - dependency-injection
+    - contract-driven
+
+dependencies:
+  runtime: []
+  internal:
+    - "@qwickapps/logging"
+  development:
+    - rollup
+    - jest
+    - typescript
+
+integrations:
+  - logging-system
+  - type-system
+
+capabilities:
+  - auth-contracts
+  - type-definitions
+  - platform-agnostic-logic
+  - validation-schemas
+  - business-rules
+
+outputs:
+  - dist/
+  - types/
+
+quality:
+  linting: implicit
+  formatting: implicit
+  testing: jest
+  coverage_threshold: 90
+  type_checking: typescript
+
+deployment:
+  type: npm-package
+  registry: private
+
+status: wip
+priority: critical

@@ -1,0 +1,83 @@
+{
+  "name": "@qwickapps/auth",
+  "version": "1.0.0",
+  "description": "Pure TypeScript authentication contracts and shared logic for QwickApps - platform agnostic foundation library",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.esm.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "build:dev": "NODE_ENV=development rollup -c",
+    "build:prod": "NODE_ENV=production STRIP_LOGS=true rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "clean": "rm -rf dist node_modules .rollup.cache",
+    "prepublishOnly": "npm run test && npm run build",
+    "deploy:dev": "npm run build:dev",
+    "deploy": "npm run build:prod"
+  },
+  "keywords": [
+    "authentication",
+    "contracts",
+    "types",
+    "typescript",
+    "platform-agnostic",
+    "auth",
+    "foundation",
+    "qwickapps"
+  ],
+  "author": "QwickApps",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "@qwickapps/logging": "^1.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/preset-typescript": "^7.27.1",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-replace": "^6.0.2",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.1.0",
+    "babel-jest": "^29.0.0",
+    "jest": "^29.0.0",
+    "jest-environment-node": "^29.0.0",
+    "rollup": "^3.0.0",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qwickapps/auth.git"
+  }
+}
